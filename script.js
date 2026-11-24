@@ -1,19 +1,14 @@
-// ---------- Data ----------
-// Books are saved in the browser using localStorage so they stay after refresh.
 var books = JSON.parse(localStorage.getItem("books")) || [];
 
-// ---------- Page elements ----------
 var bookForm = document.getElementById("bookForm");
 var bookList = document.getElementById("bookList");
 var searchBox = document.getElementById("search");
 var emptyMessage = document.getElementById("emptyMessage");
 
-// ---------- Save to localStorage ----------
 function saveBooks() {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
-// ---------- Add a book ----------
 bookForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -32,14 +27,12 @@ bookForm.addEventListener("submit", function (event) {
   showBooks();
 });
 
-// ---------- Issue a book ----------
 function issueBook(id) {
   var name = prompt("Enter the member's name:");
   if (!name || name.trim() === "") {
     return;
   }
 
-  // Due date = 14 days from today
   var due = new Date();
   due.setDate(due.getDate() + 14);
 
@@ -54,7 +47,6 @@ function issueBook(id) {
   showBooks();
 }
 
-// ---------- Return a book ----------
 function returnBook(id) {
   for (var i = 0; i < books.length; i++) {
     if (books[i].id === id) {
@@ -67,7 +59,6 @@ function returnBook(id) {
   showBooks();
 }
 
-// ---------- Delete a book ----------
 function deleteBook(id) {
   if (!confirm("Delete this book?")) {
     return;
@@ -81,10 +72,8 @@ function deleteBook(id) {
   showBooks();
 }
 
-// ---------- Search ----------
 searchBox.addEventListener("input", showBooks);
 
-// ---------- Show books in the table ----------
 function showBooks() {
   var text = searchBox.value.toLowerCase();
   bookList.innerHTML = "";
@@ -109,8 +98,8 @@ function showBooks() {
       : '<span class="badge available">Available</span>';
 
     var actionHtml = isIssued
-      ? '<button class="btn-return" onclick="returnBook(' + book.id + ')">Return</button>'
-      : '<button onclick="issueBook(' + book.id + ')">Issue</button>';
+      ? '<button class="btn-return" onclick="returnBook(' + book.id + ')" >Return</button>'
+      : '<button onclick="issueBook(' + book.id + ')" >Issue</button>';
 
     row.innerHTML =
       "<td>" + escapeHtml(book.title) + "</td>" +
@@ -118,7 +107,7 @@ function showBooks() {
       "<td>" + escapeHtml(book.category) + "</td>" +
       "<td>" + statusHtml + "</td>" +
       "<td>" + actionHtml +
-      '<button class="btn-delete" onclick="deleteBook(' + book.id + ')">Delete</button></td>';
+      '<button class="btn-delete" onclick="deleteBook(' + book.id + ')" >Delete</button></td>';
 
     bookList.appendChild(row);
   }
@@ -127,7 +116,6 @@ function showBooks() {
   updateCounts();
 }
 
-// ---------- Update the counts at the top ----------
 function updateCounts() {
   var issued = 0;
   for (var i = 0; i < books.length; i++) {
@@ -141,12 +129,10 @@ function updateCounts() {
   document.getElementById("availableCount").textContent = books.length - issued;
 }
 
-// ---------- Stop user text from being run as HTML ----------
 function escapeHtml(text) {
   var div = document.createElement("div");
   div.textContent = text;
   return div.innerHTML;
 }
 
-// ---------- Start ----------
 showBooks();
