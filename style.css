@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef2f1;
+  color: #1f2d2b;
+  line-height: 1.5;
+}
+
+header {
+  background: #1f4d47;
+  color: white;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+header p {
+  margin-top: 4px;
+  color: #cfe3df;
+}
+
+main {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Summary counts */
+.stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  flex: 1;
+  background: white;
+  border-left: 5px solid #1f4d47;
+  padding: 12px 16px;
+}
+
+.stat span {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Boxes */
+.box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.box h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  min-width: 160px;
+  padding: 10px;
+  border: 1px solid #b8c7c4;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+#search {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #1f4d47;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2c6b63;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #e0a526;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #dde5e3;
+  font-size: 15px;
+}
+
+th {
+  background: #f4f7f6;
+}
+
+td button {
+  margin-right: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.btn-return { background: #b7791f; }
+.btn-return:hover { background: #975f12; }
+.btn-delete { background: #b83b3b; }
+.btn-delete:hover { background: #962e2e; }
+
+/* Status labels */
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.badge.available {
+  background: #d8f0e0;
+  color: #1c6b36;
+}
+
+.badge.issued {
+  background: #fbe6c8;
+  color: #8a5410;
+}
+
+.issued-info {
+  display: block;
+  font-size: 12px;
+  color: #5a6b68;
+  margin-top: 4px;
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  color: #5a6b68;
+  padding: 16px;
+}
+
+@media (max-width: 600px) {
+  .stats {
+    flex-direction: column;
+  }
+}

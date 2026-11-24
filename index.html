@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Library Management System</h1>
+    <p>Add books, issue them to members and track returns.</p>
+  </header>
+
+  <main>
+
+    <!-- Summary counts -->
+    <section class="stats">
+      <div class="stat"><span id="totalCount">0</span> Total books</div>
+      <div class="stat"><span id="availableCount">0</span> Available</div>
+      <div class="stat"><span id="issuedCount">0</span> Issued</div>
+    </section>
+
+    <!-- Add a book -->
+    <section class="box">
+      <h2>Add a book</h2>
+      <form id="bookForm">
+        <input type="text" id="title" placeholder="Book title" required>
+        <input type="text" id="author" placeholder="Author" required>
+        <input type="text" id="category" placeholder="Category (e.g. Fiction)" required>
+        <button type="submit">Add book</button>
+      </form>
+    </section>
+
+    <!-- Book list -->
+    <section class="box">
+      <h2>All books</h2>
+      <input type="text" id="search" placeholder="Search by title, author or category">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookList"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage" class="empty">No books found. Add your first book above.</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
