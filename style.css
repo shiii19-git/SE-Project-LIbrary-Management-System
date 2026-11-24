@@ -29,7 +29,6 @@ main {
   padding: 0 16px;
 }
 
-/* Summary counts */
 .stats {
   display: flex;
   gap: 12px;
@@ -49,7 +48,6 @@ main {
   font-weight: bold;
 }
 
-/* Boxes */
 .box {
   background: white;
   padding: 20px;
@@ -62,7 +60,6 @@ main {
   font-size: 20px;
 }
 
-/* Form */
 form {
   display: flex;
   flex-wrap: wrap;
@@ -102,7 +99,6 @@ input:focus-visible {
   outline: 3px solid #e0a526;
 }
 
-/* Table */
 .table-wrap {
   overflow-x: auto;
 }
@@ -134,7 +130,6 @@ td button {
 .btn-delete { background: #b83b3b; }
 .btn-delete:hover { background: #962e2e; }
 
-/* Status labels */
 .badge {
   padding: 3px 10px;
   border-radius: 12px;
